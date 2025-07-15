@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>WLC Morse Code Translator – Beep and Flashlight</title>
+  <title>WLC Morse Code Signal Sender – Beep and Flashlight</title>
   <style>
     body {
       background-color: #000;
@@ -81,7 +81,7 @@
 </head>
 <body>
 
-  <h1>🖥️ WLC Morse Code Translator - Beep and Flashlight (v.1.2.1)</h1>
+  <h1>🖥️ WLC Morse Code Signal Sender - Beep and Flashlight (v.1.2.1)</h1>
 
   <div class="terminal-box">
     <label>Enter English Text:</label>
@@ -91,6 +91,7 @@
 
     <label>Morse Output:</label>
     <textarea id="output" readonly></textarea>
+    <button onclick="copyOutput()">📋 Copy Output</button>
 
     <!-- Buttons -->
     <div class="btn-row">
@@ -128,6 +129,13 @@
         output += morseMap[char] ? morseMap[char] + ' ' : '? ';
       }
       document.getElementById('output').value = output.trim();
+    }
+
+    function copyOutput() {
+      const output = document.getElementById("output");
+      output.select();
+      document.execCommand("copy");
+      document.getElementById("status").innerText = "📋 Morse copied to clipboard!";
     }
 
     function sleep(ms) {
@@ -269,4 +277,4 @@
   </script>
 
 </body>
-  </html>
+</html>
